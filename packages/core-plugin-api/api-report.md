@@ -5,6 +5,8 @@
 ```ts
 /// <reference types="react" />
 
+import { AuthorizeRequest } from '@backstage/permission-common';
+import { AuthorizeResponse } from '@backstage/permission-common';
 import { BackstageTheme } from '@backstage/theme';
 import { ComponentType } from 'react';
 import { Config } from '@backstage/config';
@@ -744,6 +746,20 @@ export type PendingAuthRequest = {
   reject: () => void;
   trigger(): Promise<void>;
 };
+
+// Warning: (ae-missing-release-tag) "PermissionApi" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PermissionApi = {
+  authorize(
+    requests: Array<AuthorizeRequest>,
+  ): Promise<Array<AuthorizeResponse>>;
+};
+
+// Warning: (ae-missing-release-tag) "permissionApiRef" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const permissionApiRef: ApiRef<PermissionApi>;
 
 // Warning: (ae-missing-release-tag) "PluginConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
