@@ -180,5 +180,13 @@ export type PermissionRequestOptions = {
   token?: string;
 };
 
+// Warning: (ae-missing-release-tag) "TechDocsPermission" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const TechDocsPermission: Record<'DOCS_READ', Permission> & {
+  get: (key: 'DOCS_READ') => Permission;
+  includes: (permission: Permission) => boolean;
+};
+
 // (No @packageDocumentation comment for this package)
 ```
