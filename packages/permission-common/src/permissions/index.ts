@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
-export * from './types';
-export * from './permissions';
-export * from './PermissionClient';
+export type { PermissionAttributes } from './attributes';
+
+export * from './permission';
+export { CRUDAction } from './attributes';
+export { createPermissions } from './util';

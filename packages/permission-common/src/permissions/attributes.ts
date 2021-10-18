@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
-export * from './types';
-export * from './permissions';
-export * from './PermissionClient';
+export enum CRUDAction {
+  CREATE = 'CREATE',
+  READ = 'READ',
+  UPDATE = 'UPDATE',
+  DELETE = 'DELETE',
+}
+
+export type PermissionAttributes = {
+  ROUTE_VISIBILITY?: boolean;
+  CRUD_ACTION?: CRUDAction;
+};
