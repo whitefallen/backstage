@@ -32,7 +32,7 @@ import {
   ExtractorLogLevel,
 } from '@microsoft/api-extractor';
 import { DocNode, IDocNodeContainerParameters } from '@microsoft/tsdoc';
-import { ApiPackage, ApiModel } from '@microsoft/api-extractor-model';
+import { ApiPackage, ApiModel, ApiItem } from '@microsoft/api-extractor-model';
 import {
   IMarkdownDocumenterOptions,
   MarkdownDocumenter,
@@ -531,6 +531,15 @@ async function buildDocs({
         );
         output.appendNode(pluginsTable);
       }
+    }
+
+    private _getFilenameForApiItem(apiItem: ApiItem): string {
+      // Work around https://github.com/microsoft/rushstack/issues/2552
+      if (apiItem.kind === 'EnumMember') {
+        return super._getFilenameForApiItem(apiItem.parent);
+      }
+
+      return super._getFilenameForApiItem(apiItem);
     }
   }
 
