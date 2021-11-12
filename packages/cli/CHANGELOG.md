@@ -1,5 +1,15 @@
 # @backstage/cli
 
+## 0.9.0
+
+### Minor Changes
+
+- 25f637f39f: Tweaked style insertion logic to make sure that JSS stylesheets always receive the highest priority.
+
+### Patch Changes
+
+- fdfd2f8a62: remove double config dep
+
 ## 0.8.2
 
 ### Patch Changes
